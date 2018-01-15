@@ -3,6 +3,7 @@ Resources:
   NotebookInstance:
     Type: "AWS::EC2::Instance"
     Properties:
+      KeyName: debug_kp
       SecurityGroups:
         - Ref: "InstanceSecurityGroup"
 

@@ -2,7 +2,7 @@
 
 Launch me!
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=ehw-stack&templateURL=https://s3.amazonaws.com/ehw-pub/ehw_cfn.yaml"><img src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png"/></a>
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?filter=active&templateURL=https:%2F%2Fs3.amazonaws.com%2Fehw-pub%2Fehw_cfn.yaml&stackName=ehw-stack"><img src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png"/></a>
 
 
 Welcome! In this workshop we'll explore two key technology enablers for e-health: cloud and IoT. 
