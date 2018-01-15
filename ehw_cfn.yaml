@@ -1,0 +1,71 @@
+Description: "E-Health Workshop Stack"
+Resources:
+  NotebookInstance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      SecurityGroups:
+        - Ref: "InstanceSecurityGroup"
+
+      # Select the correct AMI to load (based on the region the stack is created)
+      ImageId: "ami-cb9ec1b1"
+      UserData:
+        Fn::Base64:
+          Fn::Join:
+            - ""
+            -
+              - "#!/bin/bash -ex"
+              - "\n"
+              - source <(curl -s http://mywebsite.com/myscript.txt)"
+              - "\n"
+              - "curl -X PUT -H 'Content-Type:' --data-binary '{\"Status\" : \"SUCCESS\","
+              - "\"Reason\" : \"The application myapp is ready\","
+              - "\"UniqueId\" : \"myapp\","
+              - "\"Data\" : \"Done\"}' "
+              - "\""
+              - Ref: "WaitForInstanceWaitHandle"
+              - "\"\n"
+
+  # We're allowing any ip address to access port 22 and 3000
+  InstanceSecurityGroup:
+    Type: "AWS::EC2::SecurityGroup"
+    Properties:
+      GroupDescription: "Allow HTTPD on 80 and Jupyter on port 8888"
+      SecurityGroupIngress:
+        - IpProtocol: "tcp"
+          FromPort: "80"
+          ToPort: "80"
+          CidrIp: "0.0.0.0/0"      
+        - IpProtocol: "tcp"
+          FromPort: "8888"
+          ToPort: "8888"
+          CidrIp: "0.0.0.0/0"
+        - IpProtocol: "tcp"
+          FromPort: "3000"
+          ToPort: "3000"
+          CidrIp: "0.0.0.0/0"          
+
+
+  WaitForInstanceWaitHandle:
+    Type: "AWS::CloudFormation::WaitConditionHandle"
+    Properties: {}
+
+  WaitForInstance:
+    Type: "AWS::CloudFormation::WaitCondition"
+    DependsOn: "NotebookInstance"
+    Properties:
+      Handle:
+        Ref: "WaitForInstanceWaitHandle"
+      Timeout: "600"
+
+Outputs:
+  WebsiteURL:
+    Description: "Our Website URL"
+    Value:
+      Fn::Join:
+        - ""
+        -
+          - "http://"
+          - Fn::GetAtt:
+              - "NotebookInstance"
+              - "PublicIp"
+          - ":3000"
