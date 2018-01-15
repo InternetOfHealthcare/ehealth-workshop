@@ -1,0 +1,15 @@
+version: 0.2
+
+env:
+  variables:
+    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
+
+phases:
+  build:
+    commands:
+      - echo Entered the build phase...
+  post_build:
+    commands:
+      - echo Entered the post_build phase...
+      - aws s3 ls
+      - echo OKAY
