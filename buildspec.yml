@@ -11,5 +11,5 @@ phases:
   post_build:
     commands:
       - echo Entered the post_build phase...
-      - aws s3 ls
+      - aws s3 cp ehw_cfn.yaml s3://ehw-pub
       - echo OKAY
