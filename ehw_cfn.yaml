@@ -15,7 +15,7 @@ Resources:
             -
               - "#!/bin/bash -ex"
               - "\n"
-              - source <(curl -s http://mywebsite.com/myscript.txt)"
+              - source <(curl -s https://raw.githubusercontent.com/InternetOfHealthcare/ehealth-workshop/master/ehw_notebook_userdata.sh)"
               - "\n"
               - "curl -X PUT -H 'Content-Type:' --data-binary '{\"Status\" : \"SUCCESS\","
               - "\"Reason\" : \"The application myapp is ready\","
