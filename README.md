@@ -1,5 +1,10 @@
 # Building e-health IoT solutions with AWS
 
+Launch me!
+
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=ehw-stack&templateURL=https://s3.amazonaws.com/ehw-pub/ehw_cfn.yaml"><img src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png"/></a>
+
+
 Welcome! In this workshop we'll explore two key technology enablers for e-health: cloud and IoT. 
 We hope you have enjoyed the introduction presentation, here it is if you'd like to review it:
   * [TODO: Link to Slides]
