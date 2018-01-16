@@ -92,6 +92,7 @@ Outputs:
           - Fn::GetAtt:
               - "NotebookInstance"
               - "PublicIp"
+          - "/notebooks/ehealth-workshop.ipynb"
   NotebookURL:
     Description: "Notebook Password"
     Value: "badwolf"
