@@ -93,6 +93,7 @@ Outputs:
               - "NotebookInstance"
               - "PublicIp"
           - "/notebooks/ehealth-workshop.ipynb"
-  NotebookURL:
+
+  NotebookPassword:
     Description: "Notebook Password"
     Value: "badwolf"
