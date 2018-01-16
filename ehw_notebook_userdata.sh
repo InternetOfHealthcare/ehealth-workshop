@@ -5,5 +5,8 @@ wget https://s3.amazonaws.com/ehw-pub/Anaconda3-5.0.1-Linux-x86_64.sh -O ./anaco
 bash ./anaconda.sh -b -p /usr/local/anaconda
 export PATH="/usr/local/anaconda/bin:$PATH"
 source /usr/local/anaconda/bin/activate
-jupyter notebook --ip=0.0.0.0 --port80 --no-browser
+mkdir /home/ec2-user/.jupyter
+cp jupyter_notebook_config.py /home/ec2-user/.jupyter/jupyter_notebook_config.py
+chown -R ec2-user /home/ec2-user/.jupyter
+sudo -H -u ec2-user bash -c 'jupyter notebook' 
 
