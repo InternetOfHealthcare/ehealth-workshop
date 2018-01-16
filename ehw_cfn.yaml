@@ -4,11 +4,11 @@ Resources:
     Type: "AWS::EC2::Instance"
     Properties:
       KeyName: debug_kp
+      InstanceType: "t2.micro"
+      ImageId: "ami-cb9ec1b1"
       SecurityGroups:
         - Ref: "InstanceSecurityGroup"
-
       # Select the correct AMI to load (based on the region the stack is created)
-      ImageId: "ami-cb9ec1b1"
       UserData:
         Fn::Base64:
           Fn::Join:
@@ -16,10 +16,13 @@ Resources:
             -
               - "#!/bin/bash -ex"
               - "\n"
-              - source <(curl -s https://raw.githubusercontent.com/InternetOfHealthcare/ehealth-workshop/master/ehw_notebook_userdata.sh)"
+              - "cd /usr/src \n"
+              - "git clone https://github.com/InternetOfHealthcare/ehealth-workshop.git"
+              - "cd ehealth-workshop"
+              - "source ./ahw_notebook_userdata.sh"
               - "\n"
               - "curl -X PUT -H 'Content-Type:' --data-binary '{\"Status\" : \"SUCCESS\","
-              - "\"Reason\" : \"The application myapp is ready\","
+              - "\"Reason\" : \"The workshop is ready\","
               - "\"UniqueId\" : \"myapp\","
               - "\"Data\" : \"Done\"}' "
               - "\""
@@ -32,6 +35,10 @@ Resources:
     Properties:
       GroupDescription: "Allow HTTPD on 80 and Jupyter on port 8888"
       SecurityGroupIngress:
+        - IpProtocol: "tcp"
+          FromPort: "22"
+          ToPort: "22"
+          CidrIp: "0.0.0.0/0"      
         - IpProtocol: "tcp"
           FromPort: "80"
           ToPort: "80"
