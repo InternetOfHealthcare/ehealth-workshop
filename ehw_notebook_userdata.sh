@@ -1,6 +1,5 @@
 #!/bin/bash
 
-yum -y install git httpd
-echo "Hello from $(curl -s http://169.254.169.254/latest/metadata/instance-id)" >> /var/www/html/index.html
-service httpd start
-chkconfig httpd on
+yum -y install python36
+pip-3.6 install jupyter
+jupyter notebook --ip=0.0.0.0 --port=80
