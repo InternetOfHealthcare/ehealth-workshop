@@ -6,6 +6,9 @@ bash ./anaconda.sh -b -p /usr/local/anaconda
 export PATH="/usr/local/anaconda/bin:$PATH"
 source /usr/local/anaconda/bin/activate
 
+echo "Setup AWS Environment"
+export AWS_DEFAULT_REGION="us-east-1"
+
 echo "Setup AWS SDK for Python (Boto3)"
 pip install boto3
 
