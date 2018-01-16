@@ -7,7 +7,7 @@ export PATH="/usr/local/anaconda/bin:$PATH"
 source /usr/local/anaconda/bin/activate
 
 echo "Setup AWS SDK for Python (Boto3)"
-pip install AWSIoTPythonSDK
+pip install boto3
 
 echo "Setup Jupyter"
 mkdir /home/ec2-user/.jupyter
