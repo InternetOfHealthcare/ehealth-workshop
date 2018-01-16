@@ -1,13 +1,13 @@
 #!/bin/bash
 
 echo "Setup Anaconda"
-wget https://s3.amazonaws.com/ehw-pub/Anaconda3-5.0.1-Linux-x86_64.sh -O ./anaconda.sh --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 5
+wget https://s3.amazonaws.com/ehw-pub/Anaconda3-5.0.1-Linux-x86_64.sh -O ./anaconda.sh --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 5 --quiet
 bash ./anaconda.sh -b -p /usr/local/anaconda
 export PATH="/usr/local/anaconda/bin:$PATH"
 source /usr/local/anaconda/bin/activate
 
 echo "Setup AWS SDK for Python (Boto3)"
-/usr/local/anaconda/bin/pip install AWSIoTPythonSDK
+sudo -H -u ec2-user bash -c '/usr/local/anaconda/bin/pip install AWSIoTPythonSDK'
 
 echo "Setup Jupyter"
 mkdir /home/ec2-user/.jupyter
