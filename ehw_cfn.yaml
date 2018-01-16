@@ -1,5 +1,34 @@
 Description: "E-Health Workshop Stack"
+Parameters:
+  NotebookInstanceType:
+    Type: String
+    Default: "t2.micro"
+  NotebookInstanceImage:
+    Type: AWS::EC2::Image::Id
+    Default: "ami-cb9ec1b1"    
 Resources:
+  NotebookRole: 
+    Type: "AWS::IAM::Role"
+    Properties: 
+      AssumeRolePolicyDocument: 
+        Version: "2012-10-17"
+        Statement: 
+          - 
+            Effect: "Allow"
+            Principal: 
+              Service: 
+                - "ec2.amazonaws.com"
+            Action: 
+              - "sts:AssumeRole"
+      ManagedPolicyArns: 
+        - 
+          "arn:aws:iam::aws:policy/PowerUserAccess"
+  NotebookInstanceProfile:
+    Type: "AWS::IAM::InstanceProfile"
+    Properties: 
+      Roles: 
+        - 
+          !Ref "NotebookRole"
   NotebookInstance:
     Type: "AWS::EC2::Instance"
     CreationPolicy:
@@ -7,8 +36,9 @@ Resources:
         Timeout: PT60M
     Properties:
       KeyName: debug_kp
-      InstanceType: "t2.micro"
-      ImageId: "ami-cb9ec1b1"
+      InstanceType: !Ref NotebookInstanceType
+      ImageId: !Ref NotebookInstanceImage
+      IamInstanceProfile: !Ref NotebookInstanceProfile 
       SecurityGroups:
         - Ref: "InstanceSecurityGroup"
       UserData:
@@ -52,8 +82,8 @@ Resources:
           CidrIp: "0.0.0.0/0"
 
 Outputs:
-  WebsiteURL:
-    Description: "Our Website URL"
+  NotebookURL:
+    Description: "Notebook Instance URL"
     Value:
       Fn::Join:
         - ""
@@ -62,4 +92,6 @@ Outputs:
           - Fn::GetAtt:
               - "NotebookInstance"
               - "PublicIp"
-          - ":80"
+  NotebookURL:
+    Description: "Notebook Password"
+    Value: "badwolf"
