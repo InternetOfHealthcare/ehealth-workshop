@@ -13,9 +13,9 @@ echo "Setup Jupyter"
 mkdir /home/ec2-user/.jupyter
 cp jupyter_notebook_config.py /home/ec2-user/.jupyter/jupyter_notebook_config.py
 chown -R ec2-user /home/ec2-user/.jupyter
-iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080
 cd "/usr/src/ehealth-workshop/ehw-notebook"
 sudo -H -u ec2-user bash -c 'aws configure set default.region us-east-1'
 sudo -H -u ec2-user bash -c '/usr/local/anaconda/bin/jupyter notebook &'
+iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080
 
 echo "Notebook userdata finished" 

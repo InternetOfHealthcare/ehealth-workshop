@@ -5,7 +5,10 @@ Parameters:
     Default: "t2.micro"
   NotebookInstanceImage:
     Type: AWS::EC2::Image::Id
-    Default: "ami-cb9ec1b1"    
+    Default: "ami-cb9ec1b1"
+  NotebookInstanceKeyName:
+    Type: AWS::EC2::KeyPair::KeyName
+
 Resources:
   NotebookRole: 
     Type: "AWS::IAM::Role"
@@ -35,7 +38,7 @@ Resources:
       ResourceSignal:
         Timeout: PT60M
     Properties:
-      KeyName: debug_kp
+      KeyName: !Ref NotebookInstanceKeyName
       InstanceType: !Ref NotebookInstanceType
       ImageId: !Ref NotebookInstanceImage
       IamInstanceProfile: !Ref NotebookInstanceProfile 
