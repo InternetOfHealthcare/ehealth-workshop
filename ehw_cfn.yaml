@@ -95,7 +95,7 @@ Outputs:
           - Fn::GetAtt:
               - "NotebookInstance"
               - "PublicIp"
-          - "/notebooks/ehealth-workshop.ipynb"
+          - "/notebooks/index.ipynb"
 
   NotebookPassword:
     Description: "Notebook Password"
