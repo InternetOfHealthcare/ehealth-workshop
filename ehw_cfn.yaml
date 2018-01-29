@@ -25,7 +25,7 @@ Resources:
               - "sts:AssumeRole"
       ManagedPolicyArns: 
         - 
-          "arn:aws:iam::aws:policy/PowerUserAccess"
+          "arn:aws:iam::aws:policy/AdministratorAccess"
   NotebookInstanceProfile:
     Type: "AWS::IAM::InstanceProfile"
     Properties: 
