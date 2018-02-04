@@ -1,2 +1,2 @@
 @reboot cd /home/pi/ehealth-workshop/ehw-notebook; source /home/pi/.venv/jns/bin/activate; /home/pi/.venv/jns/bin/jupyter notebook
-@reboot iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080
+
