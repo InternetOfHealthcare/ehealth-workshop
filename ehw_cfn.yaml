@@ -34,9 +34,9 @@ Resources:
           !Ref "NotebookRole"
   NotebookInstance:
     Type: "AWS::EC2::Instance"
-    CreationPolicy:
-      ResourceSignal:
-        Timeout: PT60M
+#    CreationPolicy:
+#      ResourceSignal:
+#        Timeout: PT10M
     Properties:
       KeyName: !Ref NotebookInstanceKeyName
       InstanceType: !Ref NotebookInstanceType
@@ -57,7 +57,7 @@ Resources:
               - "cd ehealth-workshop \n"
               - "source ./ehw_notebook_userdata.sh \n"
               - "\n"
-              - "/opt/aws/bin/cfn-signal -e $? "
+              - "/opt/aws/bin/cfn-signal -e 0 "
               - " --stack "
               - !Ref AWS::StackName
               - " --resource NotebookInstance "
