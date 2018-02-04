@@ -1,0 +1,1 @@
+@reboot cd /home/pi/ehealth-workshop/ehw-notebook; source /home/pi/.venv/jns/bin/activate; /home/pi/.venv/jns/bin/jupyter notebook

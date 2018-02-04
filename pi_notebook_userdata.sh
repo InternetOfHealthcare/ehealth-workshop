@@ -26,13 +26,13 @@ echo "Setup Jupyter"
 echo "Clone repo"
 cd /usr/src
 git clone https://github.com/InternetOfHealthcare/ehealth-workshop.git
-mkdir $HOME/.jupyter
-cp jupyter_notebook_config.py $HOME/.jupyter/jupyter_notebook_config.py
+mkdir /home/pi/.jupyter
+cp jupyter_notebook_config.py /home/pi/.jupyter/jupyter_notebook_config.py
 
 cd /usr/src
 git clone https://github.com/kleinee/jns
 cd jns
-./prep.sh
+sudo ./prep.sh
 
 # as pi?
 pip3 install pip==9.0.0
