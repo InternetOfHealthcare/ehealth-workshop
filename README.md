@@ -96,5 +96,3 @@ Refer to the "Outputs" tab of the CloudFormation stack execution in the CloudFor
 
 - "NotebookURL", which points for the jupyter notebook with this workshop.
 - "EC2KeyPairURL", an URL to download the private key used within the created EC2 instance in case you need to connect via SSH.
-
-When the stack is in CREATE_COMPLETE state, follow the link in the "NotebookURL" output, in the Outputs tab of the CloudFormation console. That points for the jupyter notebook with this workshop! You can get the EC2 KeyPair from the  If you need to connect on the instance via SSH
