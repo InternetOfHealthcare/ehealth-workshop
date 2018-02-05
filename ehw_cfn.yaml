@@ -64,13 +64,25 @@ Resources:
               kp = boto3.client('ec2').create_key_pair(KeyName=keypairname)
               s3client = boto3.client('s3')
               s3client.create_bucket(Bucket=bucketname)
-              s3put = s3client.put_object(Bucket=bucketname,Key=objectname,Body=str(kp['KeyMaterial']),ServerSideEncryption="AES256")
+              s3put = s3client.put_object(Bucket=bucketname,
+                                          Key=objectname,
+                                          Body=str(kp['KeyMaterial']),
+                                          ServerSideEncryption="AES256")
               sleep(2)
-              keypairurl = str(s3client.generate_presigned_url('get_object', Params = {'Bucket': bucketname, 'Key': objectname}, ExpiresIn = 36000))   
+              keypairurl = str(s3client.generate_presigned_url('get_object',
+                                                                Params = {
+                                                                  'Bucket': bucketname,
+                                                                  'Key': objectname
+                                                                },
+                                                                ExpiresIn = 36000))   
               responseData = {}
               responseData['keypairname'] = keypairname
               responseData['keypairurl'] = keypairurl
-              cfnresponse.send(event, context, cfnresponse.SUCCESS, responseData, "EC2KeyPairCreator")
+              cfnresponse.send(event,
+                               context,
+                               cfnresponse.SUCCESS,
+                               responseData,
+                               "EC2KeyPairCreator")
             if event['RequestType'] == "Delete":
               print("Deleting resources...")
               boto3.client('ec2').delete_key_pair(KeyName=keypairname)
@@ -81,13 +93,21 @@ Resources:
               responseData = {}
               responseData['keypairname'] = "Deleted: True"
               responseData['keypairurl'] = "Deleted: True"
-              cfnresponse.send(event, context, cfnresponse.SUCCESS, responseData, "EC2KeyPairCreator")
+              cfnresponse.send(event,
+                               context,
+                               cfnresponse.SUCCESS,
+                               responseData,
+                               "EC2KeyPairCreator")
             if event['RequestType'] == "Change":
               print("Nothing is done with this resource upon stack change...")
               responseData = {}
               responseData['keypairname'] = "Untouched: True"
               responseData['keypairurl'] = "Untouched: True"
-              cfnresponse.send(event, context, cfnresponse.SUCCESS, responseData, "EC2KeyPairCreator")
+              cfnresponse.send(event,
+                               context,
+                               cfnresponse.SUCCESS,
+                               responseData,
+                               "EC2KeyPairCreator")
       Description: Lambda function that will create an EC2 KeyPair.
       FunctionName: !Ref AWS::StackName 
       Handler: index.lambda_handler
