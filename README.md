@@ -17,13 +17,16 @@ This lab can cost money. Should be a few cents at most, but clean up afterwards.
 
 This lab has very open security settings for easier demonstrations, avoid running it on production accounts.
 
+# Login qwiklabs
+* ![Click here to login AWS Qwik Lab](http://aws.qwiklab.com/)
+* User faermanj+labXX@amazon.com
+* Password BuildOnAWS
+
+
 # Setup your lab
 If you are attending in person you can skip this step, as an AWS Account with the workshop stack and a raspbery pi were already provisioned to you. 
 
 If you're not with us in person, we'll miss you, but here is how to set things up!
-### ![Login AWS Qwik Lab](http://aws.qwiklab.com/)
-### User faermanj+labXX@amazon.com
-### Password BuildOnAWS
 
 ### Prepare your AWS Account
 Just create this CloudFormation stack:
