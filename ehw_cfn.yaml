@@ -162,7 +162,7 @@ Resources:
   InstanceSecurityGroup:
     Type: "AWS::EC2::SecurityGroup"
     Properties:
-      GroupDescription: "Allow HTTPD on 80 and Jupyter on port 8888"
+      GroupDescription: "Allow HTTP on 80 and Jupyter on port 8888"
       SecurityGroupIngress:
         - IpProtocol: "tcp"
           FromPort: "22"
