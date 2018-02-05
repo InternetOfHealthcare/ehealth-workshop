@@ -92,7 +92,9 @@ Just create this CloudFormation stack:
 This will launch the workshop resources withing that AWS Account. 
 You can find the resource names and values in the outputs section of the cloudformation console:
 
-When the stack is in CREATE_COMPLETE state, follow the link in the "NotebookURL" output, in the Outputs tab of the CloudFormation console. That points for the jupyter notebook with this workshop!
+Refer to the "Outputs" tab of the CloudFormation stack execution in the CloudFormation console whenever the stack is in CREATE_COMPLETE state. There you will have some information, being these the most relevant:
 
+- "NotebookURL", which points for the jupyter notebook with this workshop.
+- "EC2KeyPairURL", an URL to download the private key used within the created EC2 instance in case you need to connect via SSH.
 
-
+When the stack is in CREATE_COMPLETE state, follow the link in the "NotebookURL" output, in the Outputs tab of the CloudFormation console. That points for the jupyter notebook with this workshop! You can get the EC2 KeyPair from the  If you need to connect on the instance via SSH
