@@ -17,12 +17,6 @@ This lab can cost money. Should be a few cents at most, but clean up afterwards.
 
 This lab has very open security settings for easier demonstrations, avoid running it on production accounts.
 
-# Login qwiklabs
-* ![Click here to login AWS Qwik Lab](http://aws.qwiklab.com/)
-* User faermanj+labXX@amazon.com
-* Password BuildOnAWS
-* Start the lab and get your credentials!
-
 ## Raspberry Pi Instructions
 
 To setup our Raspberry Pi we need to create access keys and then configure awscli.
