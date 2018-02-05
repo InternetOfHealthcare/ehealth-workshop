@@ -21,25 +21,9 @@ This lab has very open security settings for easier demonstrations, avoid runnin
 * ![Click here to login AWS Qwik Lab](http://aws.qwiklab.com/)
 * User faermanj+labXX@amazon.com
 * Password BuildOnAWS
+* Start the lab and get your credentials!
 
-
-# Setup your lab
-If you are attending in person you can skip this step, as an AWS Account with the workshop stack and a raspbery pi were already provisioned to you. 
-
-If you're not with us in person, we'll miss you, but here is how to set things up!
-
-### Prepare your AWS Account
-Just create this CloudFormation stack:
-
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?filter=active&templateURL=https:%2F%2Fs3.amazonaws.com%2Fehw-pub%2Fehw_cfn.yaml&stackName=ehw-stack"><img src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png"/></a>
-
-This will launch the workshop resources withing that AWS Account. 
-You can find the resource names and values in the outputs section of the cloudformation console:
-
-When the stack is in CREATE_COMPLETE state, follow the link in the "NotebookURL" output, in the Outputs tab of the CloudFormation console. That points for the jupyter notebook with this workshop!
-
-
-## Lab Setup - Using Raspberry PI 
+## Raspberry Pi Instructions
 
 To setup our Raspberry Pi we need to create access keys and then configure awscli.
 
@@ -93,3 +77,22 @@ You can also download a CSV file with your keys!
 
 ### Step #14: Click "Add permissions" and done!
 ![screen](/images/raspberry-config/14.png) 
+
+
+# EC2 Instructions Setup your lab - just use this if you want to run on EC2 instance
+If you are attending in person you can skip this step, as an AWS Account with the workshop stack and a raspbery pi were already provisioned to you. 
+
+If you're not with us in person, we'll miss you, but here is how to set things up!
+
+### Prepare your AWS EC2 / Account
+Just create this CloudFormation stack:
+
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?filter=active&templateURL=https:%2F%2Fs3.amazonaws.com%2Fehw-pub%2Fehw_cfn.yaml&stackName=ehw-stack"><img src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png"/></a>
+
+This will launch the workshop resources withing that AWS Account. 
+You can find the resource names and values in the outputs section of the cloudformation console:
+
+When the stack is in CREATE_COMPLETE state, follow the link in the "NotebookURL" output, in the Outputs tab of the CloudFormation console. That points for the jupyter notebook with this workshop!
+
+
+
