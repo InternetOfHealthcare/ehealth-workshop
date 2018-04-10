@@ -11,8 +11,9 @@ pip install boto3
 pip install AWSIoTPythonSDK
 
 echo "Setup Jupyter"
+pwd
 mkdir /home/ec2-user/.jupyter
-cp jupyter_notebook_config.py $/home/ec2-user/.jupyter/jupyter_notebook_config.py
+cp jupyter_notebook_config.py /home/ec2-user/.jupyter/jupyter_notebook_config.py
 chown -R ec2-user /home/ec2-user/.jupyter
 cd "/usr/src/ehealth-workshop/ehw-notebook"
 sudo -H -u ec2-user bash -c 'aws configure set default.region us-east-1'
