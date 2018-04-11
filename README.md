@@ -33,4 +33,6 @@ You can find the resource names and values in the outputs section of the cloudfo
 Refer to the "Outputs" tab of the CloudFormation stack execution in the CloudFormation console whenever the stack is in CREATE_COMPLETE state. There you will have some information, being these the most relevant:
 
 - "NotebookURL", which points for the jupyter notebook with this workshop.
+- Jupyter Password: BuildOnAWS
 - "EC2KeyPairURL", an URL to download the private key used within the created EC2 instance in case you need to connect via SSH.
+- Use ssh -i file.pem ec2-user@ipaddress
