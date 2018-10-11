@@ -20,7 +20,7 @@ This lab has very open security settings for easier demonstrations, avoid runnin
 ### Prepare your AWS EC2 / Account
 Just create this CloudFormation stack:
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?filter=active&templateURL=https:%2F%2Fs3.amazonaws.com%2F-artifacts%2Ftemplate.yml&stackName=ehealth-workshop"><img src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png"/></a>
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?filter=active&templateURL=https:%2F%2Fs3.amazonaws.com%2Fehw-artifacts%2Ftemplate.yml&stackName=ehealth-workshop"><img src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png"/></a>
 
 This will launch the workshop resources withing that AWS Account. 
 You can find the resource names and values in the outputs section of the cloudformation console:
