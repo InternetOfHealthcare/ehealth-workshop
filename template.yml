@@ -1,0 +1,50 @@
+Description: "E-Health Workshop Instance"
+
+Resources: 
+  BasicNotebookInstanceLifecycleConfig: 
+    Type: "AWS::SageMaker::NotebookInstanceLifecycleConfig"
+    Properties: 
+      OnStart: 
+        - Content:
+            Fn::Base64: !Sub |
+              git clone https://github.com/InternetOfHealthcare/ehealth-workshop.git /home/ec2-user/SageMaker/ehealth-workshop
+              chown -R ec2-user /home/ec2-user/SageMaker/ehealth-workshop
+              pip install AWSIoTPythonSDK
+    
+  ExecutionRole:
+    Type: "AWS::IAM::Role" 
+    Properties: 
+      AssumeRolePolicyDocument: 
+        Statement: 
+          - 
+            Action: 
+              - "sts:AssumeRole"
+            Effect: Allow
+            Principal: 
+              Service: 
+                - sagemaker.amazonaws.com
+        Version: "2012-10-17"
+      Path: /
+      Policies: 
+        - 
+          PolicyDocument: 
+            Statement: 
+              - 
+                Action: "*"
+                Effect: Allow
+                Resource: "*"
+            Version: "2012-10-17"
+          PolicyName: root
+
+  BasicNotebookInstance: 
+    Type: "AWS::SageMaker::NotebookInstance"
+    Properties: 
+      InstanceType: ml.t2.medium
+      LifecycleConfigName: !GetAtt BasicNotebookInstanceLifecycleConfig.NotebookInstanceLifecycleConfigName
+      RoleArn: !GetAtt ExecutionRole.Arn
+
+Outputs: 
+  BasicNotebookInstanceId: 
+    Value: BasicNotebookInstance
+  BasicNotebookInstanceLifecycleConfigId: 
+    Value: BasicNotebookInstanceLifecycleConfig
