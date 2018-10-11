@@ -36,7 +36,7 @@ Resources:
             Version: "2012-10-17"
           PolicyName: root
 
-  BasicNotebookInstance: 
+  WorkshopNotebookInstance: 
     Type: "AWS::SageMaker::NotebookInstance"
     Properties: 
       InstanceType: ml.t2.medium
@@ -44,7 +44,9 @@ Resources:
       RoleArn: !GetAtt ExecutionRole.Arn
 
 Outputs: 
-  BasicNotebookInstanceId: 
-    Value: BasicNotebookInstance
-  BasicNotebookInstanceLifecycleConfigId: 
-    Value: BasicNotebookInstanceLifecycleConfig
+  NotebookInstanceName: 
+    Value: !GetAtt WorkshopNotebookInstance.NotebookInstanceName
+  OpenInstanceURL:
+    Value: !Sub
+      - https://console.aws.amazon.com/sagemaker/home?region=${AWS::Region}#/notebook-instances/openNotebook/${NotebookInstanceName}
+      - { NotebookInstanceName: !GetAtt WorkshopNotebookInstance.NotebookInstanceName }
