@@ -20,14 +20,11 @@ This lab has very open security settings for easier demonstrations, avoid runnin
 ### Prepare your AWS EC2 / Account
 Just create this CloudFormation stack:
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?filter=active&templateURL=https:%2F%2Fs3.amazonaws.com%2Fehw-artifacts%2Ftemplate.yml&stackName=ehealth-workshop"><img src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png"/></a>
+<a href="https://console.aws.amazon.com/cloudformation/home?#/stacks/create/review?filter=active&templateURL=https:%2F%2Fs3.amazonaws.com%2Fehw-artifacts%2Ftemplate.yml&stackName=ehealth-workshop"><img src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png"/></a>
 
 This will launch the workshop resources withing that AWS Account. 
 You can find the resource names and values in the outputs section of the cloudformation console:
 
-Refer to the "Outputs" tab of the CloudFormation stack execution in the CloudFormation console whenever the stack is in CREATE_COMPLETE state. There you will have some information, being these the most relevant:
+https://console.aws.amazon.com/cloudformation/home
 
-- "NotebookURL", which points for the jupyter notebook with this workshop.
-- Jupyter Password: BuildOnAWS
-- "EC2KeyPairURL", an URL to download the private key used within the created EC2 instance in case you need to connect via SSH.
-- Use ssh -i file.pem ec2-user@ipaddress
+Refer to the "Outputs" tab of the CloudFormation stack execution in the CloudFormation console whenever the stack is in CREATE_COMPLETE state.
