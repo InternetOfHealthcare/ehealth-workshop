@@ -22,6 +22,12 @@ This will launch an SageMaker notebook instance, declared as a CloudFormation Te
 
 ![Create Workshop Stack](https://raw.githubusercontent.com/InternetOfHealthcare/ehealth-workshop/master/images/create-stack.png)
 
-https://console.aws.amazon.com/cloudformation/home
+The link to your notebook instance containing the instructions and code for this workshop will be available as soon as the stack reaches the state "CREATE COMPLETE". 
 
-Refer to the "Outputs" tab of the CloudFormation stack execution in the CloudFormation console whenever the stack is in CREATE_COMPLETE state.
+![Notebook Link](https://raw.githubusercontent.com/InternetOfHealthcare/ehealth-workshop/master/images/output-link.png)
+
+Each cell in the Jupyter notebook will contain either a shor explanation or code snippet. Run the cells sequentially and mind any errors, as each cell builds for the next.
+
+![Jupyter](https://raw.githubusercontent.com/InternetOfHealthcare/ehealth-workshop/master/images/index.png)
+
+We hope you enjoy the lab and feel free to submit improvements, issues, suggestions and comments.
