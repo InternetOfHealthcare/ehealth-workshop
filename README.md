@@ -20,7 +20,7 @@ Just create this CloudFormation stack:
 
 This will launch an SageMaker notebook instance, declared as a CloudFormation Template, with the configuration and code required for this workshop. When prompted to validate the Stack creation, please acknoledge that AWS CloudFormation may create an IAM Role on your behalf.  ** This role is extremely open to allow all management operations to be demonstrated. Only create this stack on an account dedicated for educational purposes.**
 
-![Create Workshop Stack](/image/create-stack.png?raw=true "Create Workshop Stack")
+![Create Workshop Stack](/InternetOfHealthcare/ehealth-workshop/blob/master/images/create-stack.png?raw=true "Create Workshop Stack")
 
 https://console.aws.amazon.com/cloudformation/home
 
