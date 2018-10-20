@@ -11,7 +11,7 @@ Resources:
               chown -R ec2-user /home/ec2-user/SageMaker/ehealth-workshop
               pip install AWSIoTPythonSDK
     
-  ExecutionRole:
+  WorkshopRole:
     Type: "AWS::IAM::Role" 
     Properties: 
       AssumeRolePolicyDocument: 
@@ -41,7 +41,7 @@ Resources:
     Properties: 
       InstanceType: ml.t2.medium
       LifecycleConfigName: !GetAtt BasicNotebookInstanceLifecycleConfig.NotebookInstanceLifecycleConfigName
-      RoleArn: !GetAtt ExecutionRole.Arn
+      RoleArn: !GetAtt WorkshopRole.Arn
 
 Outputs: 
   NotebookInstanceName: 
