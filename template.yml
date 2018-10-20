@@ -1,3 +1,4 @@
+#$ AWS_PROFILE=faermanj aws s3 cp template.yml s3://ehw-artifacts --acl public-read
 Description: "E-Health Workshop Instance"
 
 Resources: 
@@ -44,9 +45,7 @@ Resources:
       RoleArn: !GetAtt WorkshopRole.Arn
 
 Outputs: 
-  NotebookInstanceName: 
-    Value: !GetAtt WorkshopNotebookInstance.NotebookInstanceName
-  OpenInstanceURL:
+  OpenInstanceLink:
     Value: !Sub
-      - https://console.aws.amazon.com/sagemaker/home?region=${AWS::Region}#/notebook-instances/openNotebook/${NotebookInstanceName}
-      - { NotebookInstanceName: !GetAtt WorkshopNotebookInstance.NotebookInstanceName }
+      - https://${NotebookInstanceName}.notebook.${AWS::Region}.sagemaker.aws/notebooks/ehealth-workshop/index.ipynb#
+      - { NotebookInstanceName: !GetAtt WorkshopNotebookInstance.NotebookInstanceName }      
