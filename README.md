@@ -21,7 +21,7 @@ This project is not sponsored or supported by Amazon or its affiliates. The text
 ### Create your workshop resources
 The notebook instance used for this workshop and its respective configuration can be setup by creating an AWS CloudFormation stack:
 
-<a href="https://console.aws.amazon.com/cloudformation/home?#/stacks/create/review?filter=active&templateURL=https:%2F%2Fs3.amazonaws.com%2Fehw-artifacts%2Ftemplate.yml&stackName=ehealth-workshop"><img src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png" target="_blank"/></a>
+<a href="https://console.aws.amazon.com/cloudformation/home?#/stacks/create/review?filter=active&templateURL=https:%2F%2Fs3.amazonaws.com%2Fehw-artifacts%2Ftemplate.yml&stackName=ehealth-YOURNAME"><img src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png" target="_blank"/></a>
  
 This will launch an SageMaker notebook instance, declared as a CloudFormation Template, with the configuration and code required for this workshop. When prompted to validate the Stack creation, please acknoledge that AWS CloudFormation may create an IAM Role on your behalf.  ** This role is extremely open to allow all management operations to be demonstrated. Only create this stack on an account dedicated for educational purposes.**
 
